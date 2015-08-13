@@ -1,6 +1,6 @@
 {
   "name": "fs_watcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "File watcher using python watchdog module.",
   "main": "lib/watcher.js",
   "keywords": [
@@ -20,8 +20,7 @@
   "author": "ansamb",
   "license": "AGPL",
   "dependencies": {
-    "eventemitter2": "0.4.14",
-    "json-stream": "1.0.0"
+    "eventemitter2": "0.4.14"
   },
   "devDependencies": {
     "chai": "3.2.0",
