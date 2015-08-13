@@ -1,0 +1,31 @@
+{
+  "name": "fs_watcher",
+  "version": "1.0.0",
+  "description": "File watcher using python watchdog module.",
+  "main": "lib/watcher.js",
+  "keywords": [
+    "python",
+    "watchdog",
+    "file",
+    "watcher"
+  ],
+  "scripts": {
+    "install": "coffee -o lib -c src/*.coffee",
+    "test": "mocha --compilers coffee:coffee-script/register -b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ansamb-places/fs_watcher.git"
+  },
+  "author": "ansamb",
+  "license": "AGPL",
+  "dependencies": {
+    "eventemitter2": "0.4.14",
+    "json-stream": "1.0.0"
+  },
+  "devDependencies": {
+    "chai": "3.2.0",
+    "coffee-script": "1.9.3",
+    "mocha": "2.2.5"
+  }
+}
