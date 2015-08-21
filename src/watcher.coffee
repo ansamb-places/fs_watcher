@@ -10,10 +10,19 @@ class Watcher extends EventEmitter
     @process.on 'error', (error) =>
       @emit 'error', error
     @process.stdout.on 'data', (data) =>
-      try
-        json = JSON.parse data.toString()
-        @emit json.event_type, json.src_path
-      catch e then @emit 'error', e
+      eventsStrings = data.toString().split('}{')
+      if eventsStrings.length > 1
+        lastIndex = eventsStrings.length - 1
+        eventsStrings[0] += '}'
+        eventsStrings[lastIndex] = "{#{eventsStrings[lastIndex]}"
+        if eventsStrings.length > 2
+          for index in [1..eventStrings.length - 2]
+            eventsStrings[index] = "{#{eventsStrings[index]}}"
+      for eventString in eventsStrings
+        try
+          eventJson = JSON.parse eventString
+          @emit eventJson.event_type, eventJson.src_path
+        catch e then @emit 'error', e
     @process.stderr.on 'data', (data) =>
       @emit 'error', data
 
